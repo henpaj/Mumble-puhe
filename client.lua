@@ -193,7 +193,7 @@ Citizen.CreateThread(function()
 		local callList = {}
 		local radioList = {}
 
-		for i = 1, #playerList do -- Proximity based voice (probably won't work for infinity?)
+		for i = 1, #playerList do
 			local remotePlayerId = playerList[i]
 
 			if playerId ~= remotePlayerId then
@@ -232,7 +232,7 @@ Citizen.CreateThread(function()
 					}
 
 					if mumbleConfig.callSpeakerEnabled then
-						if call > 0 then -- Collect all players in the phone call
+						if call > 0 then
 							if callSpeaker then
 								local callParticipants = callData[call]
 								if callParticipants ~= nil then
@@ -247,7 +247,7 @@ Citizen.CreateThread(function()
 					end
 					
 					if mumbleConfig.radioSpeakerEnabled then
-						if radio > 0 then -- Collect all players in the radio channel
+						if radio > 0 then
 							local radioParticipants = radioData[radio]
 							if radioParticipants then
 								for id, _ in pairs(radioParticipants) do

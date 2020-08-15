@@ -1,41 +1,40 @@
 mumbleConfig = {
     voiceModes = {
-        {2.5, "Kuiskaa"}, -- Whisper speech distance in gta distance units
-        {8, "Normaali"}, -- Normal speech distance in gta distance units
-        {20, "Huuda"}, -- Shout speech distance in gta distance units
+        {2.5, "Kuiskaa"},
+        {8, "Normaali"},
+        {20, "Huuda"},
     },
-    speakerRange = 1.5, -- Speaker distance in gta distance units (how close you need to be to another player to hear other players on the radio or phone)
-    callSpeakerEnabled = true, -- Allow players to hear all talking participants of a phone call if standing next to someone that is on the phone
-    radioSpeakerEnabled = true, -- Allow players to hear all talking participants in a radio if standing next to someone that has a radio
-    radioEnabled = true, -- Enable or disable using the radio
-    micClicks = true, -- Are clicks enabled or not
-    micClickOn = true, -- Is click sound on active
-    micClickOff = true, -- Is click sound off active
-    micClickVolume = 0.1, -- How loud a mic click is
-    radioClickMaxChannel = 100, -- Set the max amount of radio channels that will have local radio clicks enabled
-    controls = { -- Change default key binds
+    speakerRange = 1.5,
+    callSpeakerEnabled = true,
+    radioSpeakerEnabled = true,
+    radioEnabled = true,
+    micClicks = true,
+    micClickOn = true,
+    micClickOff = true,
+    micClickVolume = 0.1,
+    radioClickMaxChannel = 100,
+    controls = {
         proximity = {
             key = 20, -- Z
-        }, -- Switch proximity mode
+        },
         radio = {
-            pressed = false, -- don't touch
-            key = 137, -- capital
-        }, -- Use radio
+            pressed = false,
+            key = 137,
+        },
         speaker = {
             key = 20, -- Z
-            secondary = 21, -- LEFT SHIFT
-        } -- Toggle speaker mode (phone calls)
+            secondary = 21,
+        }
     },
-    radioChannelNames = { -- Add named radio channels (Defaults to [channel number] MHz)
-        [1] = "LEO Tac 1",
-        [2] = "LEO Tac 2",
-        [3] = "EMS Tac 1",
-        [4] = "EMS Tac 2",
-        [500] = "Hurr Durr 500 Hurr Durr",
+    radioChannelNames = {
+        [1] = "Poliisiradio 1",
+        [2] = "Poliisiradio 2",
+        [3] = "Ensihoitoradio 1",
+        [4] = "Ensihoitoradio 2",
+        [500] = "Tulliradio 1",
     }
 }
 
--- Update config properties from another script
 function SetMumbleProperty(key, value)
 	if mumbleConfig[key] ~= nil and mumbleConfig[key] ~= "controls" and mumbleConfig[key] ~= "radioChannelNames" then
 		mumbleConfig[key] = value

@@ -4,7 +4,7 @@ game "gta5"
 name "Mumble-puhe"
 description "Uuden alku kommunikaatiolle, unohdetaan tokovoip!"
 author "Henpaj (henpajofficial@gmail.com)"
-version "1.1"
+version "1.2"
 
 ui_page "ui/index.html"
 

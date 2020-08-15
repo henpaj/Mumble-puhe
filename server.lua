@@ -55,9 +55,9 @@ AddEventHandler("mumble:SetVoiceData", function(key, value)
     local radioChanged = false
     local callChanged = false
 
-    if key == "radio" and radio ~= value then -- Check if channel has changed
-        if radio > 0 then -- Check if player was in a radio channel
-            if radioData[radio] then  -- Remove player from radio channel
+    if key == "radio" and radio ~= value then
+        if radio > 0 then
+            if radioData[radio] then
                 if radioData[radio][source] then
                     DebugMsg("Player " .. source .. " was removed from radio channel " .. radio)
                     radioData[radio][source] = nil
@@ -66,19 +66,19 @@ AddEventHandler("mumble:SetVoiceData", function(key, value)
         end
 
         if value > 0 then
-            if not radioData[value] then -- Create channel if it does not exist
+            if not radioData[value] then
                 DebugMsg("Player " .. source .. " is creating channel: " .. value)
                 radioData[value] = {}
             end
             
             DebugMsg("Player " .. source .. " was added to channel: " .. value)
-            radioData[value][source] = true -- Add player to channel
+            radioData[value][source] = true
         end
 
         radioChanged = true
     elseif key == "call" and call ~= value then
-        if call > 0 then -- Check if player was in a call channel
-            if callData[call] then  -- Remove player from call channel
+        if call > 0 then
+            if callData[call] then
                 if callData[call][source] then
                     DebugMsg("Player " .. source .. " was removed from call channel " .. call)
                     callData[call][source] = nil
@@ -87,7 +87,7 @@ AddEventHandler("mumble:SetVoiceData", function(key, value)
         end
 
         if value > 0 then
-            if not callData[value] then -- Create call if it does not exist
+            if not callData[value] then
                 DebugMsg("Player " .. source .. " is creating call: " .. value)
                 callData[value] = {}
             end
